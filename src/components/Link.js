@@ -46,25 +46,7 @@ class Link extends Component {
   };
 }
 
-const VOTE_MUTATION = gql`
-  mutation VoteMutation($linkId: ID!) {
-    vote(linkId: $linkId) {
-      id
-      link {
-        votes {
-          id
-          user {
-            id
-          }
-        }
-      }
-      user {
-        id
-      }
-    }
-  }
-`;
-
+const VOTE_MUTATION = '';
 // export default graphql(VOTE_MUTATION, {
 //   name: 'voteMutation',
 // })(Link);

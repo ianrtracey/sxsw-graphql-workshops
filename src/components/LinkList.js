@@ -37,34 +37,13 @@ class LinkList extends Component {
   };
 }
 
-const FEED_QUERY = gql`
-  query FeedQuery {
-    feed {
-      links {
-        id
-        createdAt
-        description
-        url
-        postedBy {
-          id
-          name
-        }
-        votes {
-          id
-          user {
-            id
-          }
-        }
-      }
-    }
-  }
-`;
+export const FEED_QUERY = '';
 
-export default graphql(FEED_QUERY, {
-  name: 'feedQuery',
-})(LinkList);
+// export default graphql(FEED_QUERY, {
+//   name: 'feedQuery',
+// })(LinkList);
 
-// export default LinkList;
+export default LinkList;
 
 LinkList.defaultProps = {
   feedQuery: {

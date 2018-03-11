@@ -5,7 +5,7 @@ import { AUTH_TOKEN } from './constants';
 
 class Header extends Component {
   render() {
-    const authToken = localStorage.getItem(AUTH_TOKEN);
+    const authToken = localStorage.getItem(AUTH_TOKEN) || 'test';
     return (
       <div className="flex pa1 justify-between nowrap orange">
         <div className="flex flex-fixed black">
