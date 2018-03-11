@@ -63,3 +63,14 @@ const FEED_QUERY = gql`
 export default graphql(FEED_QUERY, {
   name: 'feedQuery',
 })(LinkList);
+
+// export default LinkList;
+
+LinkList.defaultProps = {
+  feedQuery: {
+    loading: false,
+    feed: {
+      links: [],
+    },
+  },
+};

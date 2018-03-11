@@ -5,6 +5,10 @@ import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 class Link extends Component {
   render() {
+    const { link } = this.props;
+    const votes = link.votes || [];
+    const postedBy = link.postedBy || { name: 'Error' };
+
     const authToken = localStorage.getItem(AUTH_TOKEN);
     return (
       <div className="flex mt2 items-start">
@@ -21,10 +25,7 @@ class Link extends Component {
             {this.props.link.description} ({this.props.link.url})
           </div>
           <div className="f6 lh-copy gray">
-            {this.props.link.votes.length} votes | by{' '}
-            {this.props.link.postedBy
-              ? this.props.link.postedBy.name
-              : 'Unknown'}{' '}
+            {votes.length} votes | by {postedBy.name}{' '}
             {timeDifferenceForDate(this.props.link.createdAt)}
           </div>
         </div>
@@ -64,6 +65,8 @@ const VOTE_MUTATION = gql`
   }
 `;
 
-export default graphql(VOTE_MUTATION, {
-  name: 'voteMutation',
-})(Link);
+// export default graphql(VOTE_MUTATION, {
+//   name: 'voteMutation',
+// })(Link);
+
+export default Link;
